@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="http://unpkg.com/vue@next"></script>
+	</head>
+	<body>
+		<!--  在Vue中，已知有一个数组，保存至少5种水果的名字，请将这5种水果的名字以复选框的形式输出 -->
+		<div id="app">
+			<input type="checkbox" v-model="fruits" value="香蕉" />香蕉
+			<input type="checkbox" v-model="fruits" value="苹果"/>苹果
+			<input type="checkbox" v-model="fruits" value="葡萄"/>葡萄
+			<input type="checkbox" v-model="fruits" value="柚子"/>柚子
+			<input type="checkbox" v-model="fruits" value="榴莲"/>榴莲
+			<br>
+			{{fruits.length>0?fruits:''}}
+		</div>
+		
+		<script type="text/javascript">
+			Vue.createApp({
+				data(){
+				return{
+					fruits:[],
+				}
+				}
+			}).mount("#app")
+		</script>
+	</body>
+</html>

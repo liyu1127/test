@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>欧元与人民币与港元的换算器</title>
+		<script src="http://unpkg.com/vue@next"></script>
+	</head>
+	<!-- 请定义一个欧元与人民币与港元的换算器，换算的比例是：
+	1欧元=7.456人民币
+	1人民币=0.1341欧元
+	1港元=0.8278人民币
+	1欧元=9.0071港币
+	1人民币=1.208港币-->
+	<body>
+		<div id="app">
+			<p>换算欧元与人民币的换算器</p>
+			欧元：<input v-model="Euro " @change="one($event)"><br />
+			人民币：<input v-model="rmb" @change="two($event)"><br />
+			港元：<input v-model="rmbe" @change="three($event)">
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		Vue.createApp({
+			data() {
+				return{
+					Euro:'',
+					rmb:'',
+					rmbe:''
+				}
+			},
+			methods:{
+			one(event){
+				this.rmb=event.currentTarget.value*7.456
+				this.rebe=event.currentTarget.value*9.0071
+			},
+			two(event){
+				this.Euro=event.currentTarget.value*0.1341
+				this.rebe=event.currentTarget.value*1.208
+			},
+			three(event){
+				this.Euro=event.currentTarget.value*0.8278
+				this.reb=event.currentTarget.value*1.208
+			}
+			},
+		}).mount("#app")
+	</script>
+	
+</html>

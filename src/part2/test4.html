@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="http://unpkg.com/vue@next"></script>
+		
+		<style>
+			.active{
+				font-size: 36px;
+				color: red;
+				border: 1;
+			}
+			.divBorder{
+				border: dotted 1px blue;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="app">
+			<div v-bind:class="{divBorder:isActive}">
+				hello
+			</div >
+			<div  v-bind:class="{active:isActive,divBorder:isDivBorder}">
+				{{isActive}}
+				<p>Hello</p>
+				<button type="button" @click="isActive=(isActive?false:true)">点击</button>
+			</div>
+			<div :class="clsOBJ">
+				<p>哈哈哈哈哈哈</p>
+			</div>
+			
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		Vue.createApp({
+			data(){
+				return{
+					isActive:false,
+					isDivBorder:true,
+					clsOBJ:{
+						active:true,
+						divBorder:true
+					}
+				}
+			}
+		}).mount("#app")
+	</script>
+	
+</html>

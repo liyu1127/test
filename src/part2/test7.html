@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue事件--事件修饰符</title>
+		<script src="https://unpkg.com/vue@next"></script>
+		<style>
+			.one{
+				background: #00FFFF;
+				width: 200px;
+				height: 200px;
+			}
+			.two{
+				background: #AAFFFF;
+				width: 150px;
+				height: 150px;
+			}
+			.three{
+				background: #FF0000;
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<!-- .stop		阻止事件冒泡
+	.prevent		取消事件的默认行为
+	.self		事件必须在自身触发
+	.once		事件只触发一次
+	.capture              内部元素触发的事件先在此处理，然后才交由内部元素进行处理
+ -->
+	<body>
+		<div id="app">
+			<div :class="{one:isOne}" @click="oneMethod">
+				<div :class="{two:isTwo}" @click="twoMethod">
+					<div :class="{three:isThree}" @click="threeMethod">
+						
+					</div>
+				</div>
+			</div>
+			<a href="http://www.baidu.com" @click.prevent="threeMethod">百度</a>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		Vue.createApp({
+			data(){
+				return{
+					isOne:true,
+					isTwo:true,
+					isThree:true
+				}
+			},
+			methods:{
+				oneMethod(){
+					console.log("one")
+				},
+				twoMethod(){
+					console.log("two")
+				},
+				threeMethod(){
+					console.log("three")
+				}
+			}
+		}).mount("#app")
+	</script>
+</html>

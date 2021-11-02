@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+	<!--  在Vue中，请定义一个按钮，点击该按钮将页面的背景设置为红色。 -->
+    <div id="app">
+		<div v-bind:style="color">
+			<input type="button" value="点击" v-on:click="color==''?one():two()" />
+		</div>
+    </div>
+	
+	<script type="text/javascript">
+		Vue.createApp({
+			data(){
+				return{
+					color:""
+				}
+			},
+			methods:{
+				one(){
+						this.color="background-color: darkred;width: 100%;height: 100%;position:fixed"
+				},
+				two(){
+					this.color=""
+				}
+			}
+		}).mount("#app")
+	</script>
+</body>
+</html>

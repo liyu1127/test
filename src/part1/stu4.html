@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="http://unpkg.com/vue@next"></script>
+	</head>
+	<body>
+		<!-- 结合vue的双向绑定和事件功能，完成如图所示功能：
+		（1）拖动控件是HTML5，type=range
+		（2）利用change事件，检测数据变化
+		（3）字体样式font-size,需要带单位px才会有效果 -->
+		<div id="app">
+		<p v-bind:style="syx">我是文字，默认12像素</p>
+		{{sex}}
+		
+		<input type="range" v-model="sex" v-on:change="showInfo()" />
+		</div>
+		
+		<script type="text/javascript">
+			Vue.createApp({
+				data(){
+					return{
+						sex:12,
+						syx:''
+					}
+				},
+				methods:{
+					showInfo(){
+						this.syx='font-size:'+this.sex+'px'
+					}
+				}
+			}).mount("#app")
+			
+		</script>
+		
+	</body>
+</html>

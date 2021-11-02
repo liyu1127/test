@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue表单输入绑定--修饰符</title>
+		<script src="https://unpkg.com/vue@next"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="checkbox" v-model="cks" value="威儿"/>威儿
+			<input type="checkbox" v-model="cks" value="威仔"/>威仔
+			<input type="checkbox" v-model="cks" value="威来"/>威来
+			<br />
+			{{cks}}
+			<button @click="testC2">翻</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		Vue.createApp({
+			data() {
+				return{
+					cks:["威儿","威仔"]
+				}
+			},
+			methods:{
+				testC2(){
+					if(this.cks.indexOf("威仔")>-1){
+						alert("威仔被翻牌")
+					}else{
+						alert("威仔未被翻牌")
+					}
+				}
+			}
+		}).mount("#app")
+	</script>
+	
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue表单 v-model</title>
+		<script src="https://unpkg.com/vue@next"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input v-model.lazy="msg1" />{{msg1}}
+			<textarea v-model="info1">safadf</textarea>
+			<br />
+			{{n}}
+			<input v-model.number="n"/>{{n+10}}
+			<input v-model.trim="msg1"/>{{msg1.length}}
+		</div>
+	</body>
+	<script type="text/javascript">
+		Vue.createApp({
+			data() {
+				return{
+					msg1:"威儿",
+					info1:"Hello 威仔",
+					n:10
+				}
+			}
+		}).mount("#app")
+	</script>
+	
+</html>

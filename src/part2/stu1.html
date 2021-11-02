@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>换算美元</title>
+		<script src="http://unpkg.com/vue@next"></script>
+	</head>
+	<!-- 请定义一个美元与人民币的换算器，目前的汇率是：
+	1美元=6.9077人民币
+	1人民币=0.1448美元 -->
+	<body>
+		<div id="app">
+			<p>换算美元</p>
+			美元：<input v-model="doller" @change="one($event)"><br />
+			人民币：<input v-model="rmb" @change="two($event)">
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		Vue.createApp({
+			data() {
+				return{
+					doller:0,
+					rmb:0
+				}
+			},
+			methods:{
+				one(event){
+					this.rmb=event.currentTarget.value*6.9077
+				},
+				two(event){
+					this.doller=event.currentTarget.value*0.1448
+				}
+			},
+		}).mount("#app")
+	</script>
+	
+</html>
